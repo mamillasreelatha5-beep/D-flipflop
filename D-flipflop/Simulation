@@ -1,0 +1,59 @@
+# Simulation Steps
+
+## 1. Install the simulator
+
+Install Icarus Verilog and GTKWave on your computer.
+
+## 2. Open the project
+
+Open a terminal in the root directory of the project.
+
+## 3. Compile the Verilog files
+
+```bash
+iverilog -o d_flip_flop_sim rtl/d_flip_flop.v testbench/tb_d_flip_flop.v
+```
+
+## 4. Run the simulation
+
+```bash
+vvp d_flip_flop_sim
+```
+
+## 5. Generate the waveform
+
+The testbench generates:
+
+```text
+d_flip_flop.vcd
+```
+
+## 6. Open the waveform
+
+```bash
+gtkwave d_flip_flop.vcd
+```
+
+## 7. Observe the signals
+
+Add the following signals to the waveform:
+
+* `clk`
+* `reset`
+* `d`
+* `q`
+
+## 8. Verify the result
+
+Check that the output `Q` captures the value of `D` on every rising edge of `CLK`.
+
+When reset is active, `Q` becomes `0`.
+
+When reset is inactive:
+
+* `D = 0` → `Q = 0` at the next rising clock edge.
+* `D = 1` → `Q = 1` at the next rising clock edge.
+
+## Expected Result
+
+The simulation should confirm the correct operation of the D Flip-Flop.
